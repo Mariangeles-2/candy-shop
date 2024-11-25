@@ -164,10 +164,13 @@ function eliminarProduto() {
     } else {
         alert("No tenes productos agregados!");
     }
-
-
-
 }
+
+//Modificar producto
+
+
+//Vaciar carrito
+
 
 //Menu
 do {
