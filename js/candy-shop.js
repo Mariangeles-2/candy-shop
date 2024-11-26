@@ -129,11 +129,9 @@ function agregarProducto() {
 function eliminarProduto() {
     if (carrito.items.length > 0) {
         do {
-            let posicionProductoAEliminar;
-
             const mensajeEliminarProducto = "Ésta es la lista de tu carrito \n\n" + obtenerItemsMiCarrito() + "\n\n Escriba el item que desea elimnar: "
 
-            posicionProductoAEliminar = parseInt(prompt(mensajeEliminarProducto));
+            const posicionProductoAEliminar = parseInt(prompt(mensajeEliminarProducto));
 
             if (posicionProductoAEliminar > 0 && posicionProductoAEliminar <= carrito.items.length) {
 
@@ -167,10 +165,57 @@ function eliminarProduto() {
 }
 
 //Modificar producto
+function modificarProducto() {
+    if (carrito.items.length > 0) {
 
+        const mensajeModificarProducto = "Ésta es la lista de tu carrito \n\n" + obtenerItemsMiCarrito() + "\n\n Escriba el item que desea modificar: ";
+
+        const posicionProductoAModificar = parseInt(prompt(mensajeModificarProducto));
+
+        if (posicionProductoAModificar > 0 && posicionProductoAModificar <= carrito.items.length) {
+
+            const mensajeCantidadProductoAModificar = "Coloque la cantidad que desea modificar del producto: ";
+
+            const cantidadProductoAModificar = parseInt(prompt(mensajeCantidadProductoAModificar));
+
+            if (cantidadProductoAModificar > 0) {
+
+                const itemAModificar = carrito.items[posicionProductoAModificar - 1];
+
+                const subtotalOriginal = itemAModificar.subtotal;
+
+                const nombrePorductoAModificar = itemAModificar.nombre;
+
+                itemAModificar.cantidad = cantidadProductoAModificar;
+
+                itemAModificar.subtotal = itemAModificar.cantidad * itemAModificar.precio;
+
+                carrito.items[posicionProductoAModificar - 1] = itemAModificar
+
+                carrito.total += subtotalOriginal - itemAModificar.subtotal
+
+                alert("La cantidad del producto " + nombrePorductoAModificar + " ahora es de " + itemAModificar.cantidad + "uni.");
+
+            } else {
+                alert("Número incorresto!")
+            }
+        } else {
+            alert("Producto incorrecto.")
+        }
+    } else {
+        alert("No tenes productos agregados!");
+    }
+}
 
 //Vaciar carrito
+function vaciarCarrito() {
+    const confirmacionDeEliminacion = confirm ("Desea vaciar el carrito?");
 
+    if (confirmacionDeEliminacion) {
+        carrito.items = [];
+        alert("El carrito ha sido vaciado!");
+    }
+}
 
 //Menu
 do {
