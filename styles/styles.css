@@ -1,0 +1,74 @@
+/*General*/
+/*Reset*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../assets/background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.main-title{
+    font-family: "Agbalumo", system-ui;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 500%;
+}
+
+/* Lista Productos */
+
+.body-card{
+    background-color: #feffe7;
+}
+
+.img-shop{
+    height: 15rem;
+    width: 100%;
+}
+
+/* Mi Carrito */
+
+.ticket{
+    background-color: #feffe7;
+}
+
+.img-cart{
+    height: 7rem;
+    width: auto;
+}
+
+/*Clas Btn*/
+.btn-minus{
+    border-radius: 40% !important;
+    background-color: #ff2020b2;
+    border: none;
+    padding: 7px;
+}
+
+.btn-plus {
+    border-radius: 40% !important;
+    background-color: #8cff3aac;
+    border: none;
+    padding: 7px;
+}
+
