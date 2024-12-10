@@ -25,72 +25,7 @@
         <h2 class="text-center my-4">Productos</h2>
         <div class="row">
             <div class="col-9">
-                <div class="row row-cols-1 row-cols-md-4 g-4">
-                    <div class="col">
-                        <div class="card body-card">
-                            <img src="assets/coca-zero.png" class="img-shop card-img-top" alt="coca-zero">
-                            <div class="card-body">
-                                <h3 class="card-title">Coca Cola Zero</h3>
-                                <p class="card-text">$ 1000</p>
-                                <div class="input-group align-items-center">
-                                    <button class="m-2 btn-minus"><i class="fa-solid fa-minus"></i></button>
-                                    <input type="number" class="form-control text-center"></input>
-                                    <button class="m-2 btn-plus"><i class="fa-solid fa-plus"></i></button>
-                                    <button class="btn m-2"><i class="fa-solid fa-trash"></i></button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="card body-card">
-                            <img src="assets/coca.png" class="img-shop card-img-top" alt="Coca Cola">
-                            <div class="card-body">
-                                <h3 class="card-title">Coca Cola</h3>
-                                <p class="card-text">$ 1000</p>
-                                <a href="#" class="d-block btn btn-warning">Agregar al carrito</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="card body-card">
-                            <img src="assets/sprite.png" class="img-shop card-img-top" alt="Sprite">
-                            <div class="card-body">
-                                <h3 class="card-title">Sprite</h3>
-                                <p class="card-text">$ 1000</p>
-                                <a href="#" class="d-block btn btn-warning">Agregar al carrito</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="card body-card">
-                            <img src="assets/nachos.png" class="p-2 img-shop card-img-top" alt="Nachos">
-                            <div class="card-body">
-                                <h3 class="card-title">Nachos</h3>
-                                <p class="card-text">$ 2000</p>
-                                <a href="#" class="d-block btn btn-warning">Agregar al carrito</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="card body-card">
-                            <img src="assets/hamburguesa.png" class="img-shop card-img-top" alt="Hamburguesa">
-                            <div class="card-body">
-                                <h3 class="card-title">Hamburguesa</h3>
-                                <p class="card-text">$ 2000</p>
-                                <a href="#" class="d-block btn btn-warning">Agregar al carrito</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="card body-card">
-                            <img src="assets/pochoclo.png" class="img-shop card-img-top" alt="Pochoclos">
-                            <div class="card-body">
-                                <h3 class="card-title">Pochoclos</h3>
-                                <p class="card-text">$ 2000</p>
-                                <a href="#" class="d-block btn btn-warning">Agregar al carrito</a>
-                            </div>
-                        </div>
-                    </div>
+                <div class="row row-cols-1 row-cols-md-4 g-4" id="containerOfProductos">
                 </div>
             </div>
 
@@ -103,46 +38,7 @@
 
                     <p class="text-center m-3">Tu carrito está vacío!</p>
 
-                    <div>
-                        <div class="row m-1">
-                            <img src="assets/coca-zero.png" class="img-cart col-4" alt="Coca Cola Zero">
-                            <div class="col-8">
-                                <h3>Coca Cola Zero</h3>
-                                <p>$ 1000</p>
-                                <div class="input-group align-items-center">
-                                    <button class="m-2 btn-minus"><i class="fa-solid fa-minus"></i></button>
-                                    <input type="number" class="form-control text-center"></input>
-                                    <button class="m-2 btn-plus"><i class="fa-solid fa-plus"></i></button>
-                                    <button class="btn m-2"><i class="fa-solid fa-trash"></i></button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row m-1">
-                            <img src="assets/coca.png" class="img-cart col-4" alt="Coca Cola">
-                            <div class="col-8">
-                                <h3>Coca Cola</h3>
-                                <p>$ 1000</p>
-                                <div class="input-group align-items-center">
-                                    <button class="m-2 btn-minus"><i class="fa-solid fa-minus"></i></button>
-                                    <input type="number" class="form-control text-center"></input>
-                                    <button class="m-2 btn-plus"><i class="fa-solid fa-plus"></i></button>
-                                    <button class="btn m-2"><i class="fa-solid fa-trash"></i></button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row m-1">
-                            <img src="assets/nachos.png" class="img-cart col-4" alt="Nachos">
-                            <div class="col-8">
-                                <h3>Nachos</h3>
-                                <p>$ 2000</p>
-                                <div class="input-group align-items-center">
-                                    <button class="m-2 btn-minus"><i class="fa-solid fa-minus"></i></button>
-                                    <input type="number" class="form-control text-center"></input>
-                                    <button class="m-2 btn-plus"><i class="fa-solid fa-plus"></i></button>
-                                    <button class="btn m-2"><i class="fa-solid fa-trash"></i></button>
-                                </div>
-                            </div>
-                        </div>
+                    <div id="containerOfItems">
                     </div>
 
                     <div class="d-flex justify-content-between mt-4">
@@ -168,6 +64,11 @@
         crossorigin="anonymous"></script>
     <!--Script Iconos-->
     <script src="https://kit.fontawesome.com/8d7d588bcd.js" crossorigin="anonymous"></script>
+    <!--Script JavaScript-->
+    <script src="js/product.js"></script>
+    <script src="js/items.js"></script>
+    <script src="js/carrito.js"></script>
+    <script src="js/functions.js"></script>
 </body>
 
 </html>
