@@ -6,4 +6,9 @@ class Carrito {
     }
 }
 
-const carrito = new Carrito ();
+let carrito = JSON.parse(localStorage.getItem("miCarrito"));
+
+if (carrito == null) {
+
+    carrito = new Carrito();
+}

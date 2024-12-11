@@ -36,20 +36,21 @@
                         <i class="fa-solid fa-cart-shopping"></i>
                     </div>
 
-                    <p class="text-center m-3">Tu carrito está vacío!</p>
+                    <div id="mensajeCarritoVacio">
+                    </div>
 
                     <div id="containerOfItems">
                     </div>
 
                     <div class="d-flex justify-content-between mt-4">
-                        <h4>Tu total es:</h4>
-                        <div class="text-end me-5 fw-bolder fs-5">$ 4000</div>
+                        <h4>Tu total es: $</h4>
+                        <div class="text-end me-5 fw-bolder fs-5" id="precioTotalCarrito">0</div>
                     </div>
                 </div>
 
-                <div>
-                    <button class="w-100 btn btn-danger mb-3">Vaciar carrito</button>
+                <div id="contenedorBtnEliminarCarrito">
                 </div>
+
             </div>
         </div>
     </main>
