@@ -6,8 +6,21 @@
     <button class="btn m-2"><i class="fa-solid fa-trash"></i></button>
 </div> 
 */
-function modificarTotalCarrito() {
-    const precioTotalCarrito = document.getElementById("precioTotalCarrito");
+function dibujarPrecioTotalCarrito() {
+    const contenedorPrecioTotalCarrito = document.getElementById("contenedorPrecioTotalCarrito");
+    let precioTotalCarrito;
+
+    if (contenedorPrecioTotalCarrito.childElementCount === 0) {
+        const textoTotalCarrito = document.createElement("h4");
+        textoTotalCarrito.innerText = "Tu total es: $";
+
+        precioTotalCarrito = document.createElement("div");
+        precioTotalCarrito.id = "precioTotalCarrito";
+        precioTotalCarrito.className = "text-end me-5 fw-bolder fs-5";
+        contenedorPrecioTotalCarrito.append(textoTotalCarrito, precioTotalCarrito);
+    } else {
+        precioTotalCarrito = document.getElementById("precioTotalCarrito")
+    }
     precioTotalCarrito.innerText = carrito.total;
 }
 
@@ -25,15 +38,19 @@ function agregarProducto(producto) {
 
     carrito.total += item.subtotal;
 
-    localStorage.setItem("miCarrito", JSON.stringify(carrito));
+    guardarCarritoEnLocalStorage();
 
     borrarMensajeMiCarritoVacio();
 
     dibujarItemEnMiCarrito(item);
 
-    modificarTotalCarrito();
+    dibujarPrecioTotalCarrito();
 
     dibujarBotonVaciarMiCarrito();
+}
+
+function guardarCarritoEnLocalStorage() {
+    localStorage.setItem("miCarrito", JSON.stringify(carrito));
 }
 
 function borrarMensajeMiCarritoVacio() {
@@ -111,7 +128,8 @@ function eliminarCarrito() {
         carrito.total = 0;
         containerOfItems.innerHTML = "";
 
-        modificarTotalCarrito();
+        eliminarPrecioTotalCarrito();
+
         crearMensajeCarritoVacio();
         borrarBotonVaciarMiCarrito();
 
@@ -119,6 +137,11 @@ function eliminarCarrito() {
 
         alert("El carrito se vació!");
     }
+}
+
+function eliminarPrecioTotalCarrito() {
+    const contenedorPrecioTotalCarrito = document.getElementById("contenedorPrecioTotalCarrito");
+    contenedorPrecioTotalCarrito.innerHTML = "";
 }
 
 function borrarBotonVaciarMiCarrito() {
@@ -145,7 +168,7 @@ function dibujarEstructuraMiCarrito() {
             dibujarItemEnMiCarrito(item)
         });
 
-        modificarTotalCarrito();
+        dibujarPrecioTotalCarrito();
 
         dibujarBotonVaciarMiCarrito();
 
