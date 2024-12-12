@@ -12,7 +12,7 @@ function dibujarPrecioTotalCarrito() {
 
     if (contenedorPrecioTotalCarrito.childElementCount === 0) {
         const textoTotalCarrito = document.createElement("h4");
-        textoTotalCarrito.innerText = "Tu total es: $";
+        textoTotalCarrito.innerText = "Tu total es: ";
 
         precioTotalCarrito = document.createElement("div");
         precioTotalCarrito.id = "precioTotalCarrito";
@@ -21,7 +21,7 @@ function dibujarPrecioTotalCarrito() {
     } else {
         precioTotalCarrito = document.getElementById("precioTotalCarrito")
     }
-    precioTotalCarrito.innerText = carrito.total;
+    precioTotalCarrito.innerText = `$ ${carrito.total}`;
 }
 
 function agregarProducto(producto) {
