@@ -8,12 +8,24 @@ class Producto {
     }
 }
 
-const listaDeProductosDisponibles = [
-    new Producto(100, "assets/coca.png", "Coca Cola", 1000),
-    new Producto(101, "assets/coca-zero.png", "Coca Coca Zero", 1000),
-    new Producto(102, "assets/pochoclo.png", "Pochoclos", 2000),
-    new Producto(103, "assets/nachos.png", "Nachos", 2000),
-    new Producto(104, "assets/sugus.png", "Sugus", 500),
-    new Producto(105, "assets/rocklets.png", "Rocklets", 500)
-];
+// Función para cargar productos
+async function obtenerProductosDesdeJSON() {
+    try {
+        const respuestaFetch = await fetch('../json/productos.json');
+        const listaProductosFormatoJSON = await respuestaFetch.json();
+        const listaDeProductosDisponibles = listaProductosFormatoJSON.map(
+            productoFormatoJSON => new Producto(
+                productoFormatoJSON.id,
+                productoFormatoJSON.img,
+                productoFormatoJSON.nombre,
+                productoFormatoJSON.precio
+            )
+        );
+
+        return listaDeProductosDisponibles;
+
+    } catch (error) {
+        console.error('Error al cargar los productos:', error);
+    }
+}
 

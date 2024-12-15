@@ -353,8 +353,10 @@ function borrarMensajeMiCarritoVacio() {
 }
 
 // Inicialización de la tienda
-function crearTarjetasProductos() {
+async function crearTarjetasProductos() {
     const contenedorDeProductos = document.getElementById("contenedorDeProductos");
+
+    const listaDeProductosDisponibles = await obtenerProductosDesdeJSON();
 
     listaDeProductosDisponibles.forEach(producto => {
         const tarjetaProductoColumna = crearColumnaElemento();
