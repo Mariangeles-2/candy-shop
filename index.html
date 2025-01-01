@@ -13,12 +13,23 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Agbalumo&display=swap" rel="stylesheet">
+    <!--Link Sweet Alert-->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <title>Candy Shop</title>
 </head>
 
 <body class="container-fluid">
     <header>
         <h1 class="text-center mt-4 main-title">CANDY SHOP</h1>
+        <nav class="navbar">
+            <div class="container-fluid justify-content-end">
+                <form class="d-flex" role="search" id="formBuscador">
+                    <input class="form-control me-2" type="search" id="inputBuscador" placeholder="Qué producto buscas?"
+                        aria-label="Search">
+                    <button class="btn btn-warning" type="submit">Buscar</button>
+                </form>
+            </div>
+        </nav>
     </header>
 
     <main>
@@ -64,10 +75,11 @@
     <!--Script Iconos-->
     <script src="https://kit.fontawesome.com/8d7d588bcd.js" crossorigin="anonymous"></script>
     <!--Script JavaScript-->
+    <script src="js/alertas.js"></script>
     <script src="js/product.js"></script>
     <script src="js/items.js"></script>
     <script src="js/carrito.js"></script>
-    <script src="js/functions.js"></script>
+    <script src="js/buscador.js"></script>
 </body>
 
 </html>
