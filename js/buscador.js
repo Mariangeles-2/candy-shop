@@ -7,6 +7,14 @@ formBuscador.addEventListener("submit", async (event) => {
     const productosDisponibles = await obtenerProductosDesdeJSON();
     const productosFiltrados = productosDisponibles.filter(producto => producto.nombre.toLowerCase().includes(textoBuscado));
 
+    if (productosFiltrados.length === 0) {
+        configurarSweetAlert().fire({
+            icon: "error",
+            title: "Oops...",
+            text: "No se encontraron productos con ese nombre!",
+        });
+    }
+
     dibujarTarjetasProductos(productosFiltrados);
 });
 
