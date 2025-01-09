@@ -1,3 +1,9 @@
+// Refrescar la página
+document.getElementById("linkInicio").addEventListener("click", (event) => {
+    event.preventDefault();
+    location.reload();
+});
+
 //Buscador de productos
 const formBuscador = document.getElementById("formBuscador");
 formBuscador.addEventListener("submit", async (event) => {
@@ -17,7 +23,6 @@ formBuscador.addEventListener("submit", async (event) => {
 
     dibujarTarjetasProductos(productosFiltrados);
 });
-
 
 
 
