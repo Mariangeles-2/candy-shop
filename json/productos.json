@@ -1,0 +1,38 @@
+[
+    {
+        "id": 100,
+        "img": "assets/coca.png",
+        "nombre": "Coca Cola",
+        "precio": 1000
+    },
+    {
+        "id": 101,
+        "img": "assets/coca-zero.png",
+        "nombre": "Coca Cola Zero",
+        "precio": 1000
+    },
+    {
+        "id": 102,
+        "img": "assets/pochoclo.png",
+        "nombre": "Pochoclos",
+        "precio": 2000
+    },
+    {
+        "id": 103,
+        "img": "assets/nachos.png",
+        "nombre": "Nachos",
+        "precio": 2000
+    },
+    {
+        "id": 104,
+        "img": "assets/sugus.png",
+        "nombre": "Sugus",
+        "precio": 500
+    },
+    {
+        "id": 105,
+        "img": "assets/rocklets.png",
+        "nombre": "Rocklets",
+        "precio": 500
+    }
+]
