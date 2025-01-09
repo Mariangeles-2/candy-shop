@@ -11,7 +11,7 @@ class Producto {
 // Función para cargar productos
 async function obtenerProductosDesdeJSON() {
     try {
-        const respuestaFetch = await fetch('../json/productos.json');
+        const respuestaFetch = await fetch('json/productos.json');
         const listaProductosFormatoJSON = await respuestaFetch.json();
         const listaDeProductosDisponibles = listaProductosFormatoJSON.map(
             productoFormatoJSON => new Producto(
