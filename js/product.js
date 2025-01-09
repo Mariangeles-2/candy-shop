@@ -55,7 +55,7 @@ function agregarProducto(producto) {
     borrarMensajeMiCarritoVacio();
     dibujarItemEnMiCarrito(itemCarrito);
     dibujarPrecioTotalCarrito();
-    dibujarBotonVaciarMiCarrito();
+    dibujarBotonComprarYVaciarMiCarrito();
 }
 
 function compararIdProductoConIdItem(producto, item) {

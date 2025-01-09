@@ -125,7 +125,7 @@ function eliminarItem(item) {
 
             if (carrito.items.length === 0) {
                 crearMensajeCarritoVacio();
-                borrarBotonVaciarMiCarrito();
+                borrarBotonComprarYVaciarMiCarrito();
                 borrarPrecioTotalCarrito();
             }
         }

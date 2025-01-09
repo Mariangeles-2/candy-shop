@@ -24,7 +24,7 @@ function dibujarEstructuraMiCarrito() {
         carrito.items.forEach(item => dibujarItemEnMiCarrito(item));
 
         dibujarPrecioTotalCarrito();
-        dibujarBotonVaciarMiCarrito();
+        dibujarBotonComprarYVaciarMiCarrito();
 
     } else {
         crearMensajeCarritoVacio();
@@ -72,14 +72,45 @@ function crearDivPrecioTotalCarrito() {
     return precioTotalCarrito;
 }
 
-function dibujarBotonVaciarMiCarrito() {
-    const contenedorBtnEliminarCarrito = document.getElementById("contenedorBtnEliminarCarrito");
+function dibujarBotonComprarYVaciarMiCarrito() {
+    const contenedorBtnComprarYVaciarCarrito = document.getElementById("contenedorBtnComprarYVaciarCarrito");
 
-    borrarBotonVaciarMiCarrito();
+    borrarBotonComprarYVaciarMiCarrito();
 
     const btnEliminarCarrito = crearBtnEliminarCarrito();
+    const btnComprar = crearBtnComprar();
 
-    contenedorBtnEliminarCarrito.appendChild(btnEliminarCarrito);
+    contenedorBtnComprarYVaciarCarrito.append(btnComprar, btnEliminarCarrito);
+}
+
+function crearBtnComprar() {
+    const btnComprar = document.createElement("button");
+    btnComprar.className = "w-100 btn btn-success mb-3";
+    btnComprar.innerText = "Comprar";
+    btnComprar.addEventListener("click", () => comprar());
+    return btnComprar;
+}
+
+function comprar() {
+    const swalWithBootstrapButtons = configurarSweetAlert();
+
+    swalWithBootstrapButtons.fire({
+        title: "Deseas comprar los productos?",
+        icon: "question",
+        showDenyButton: true,
+        confirmButtonText: "Si, comprar",
+        denyButtonText: `No! me arrepentí`,
+    }).then((result) => {
+        if (result.isConfirmed) {
+            swalWithBootstrapButtons.fire({
+                title: "Gracias por tu compra!",
+                icon: "success",
+                confirmButtonText: 'OK',
+            });
+
+            limpiarContenedorDeItems();
+        }
+    });
 }
 
 function crearBtnEliminarCarrito() {
@@ -95,9 +126,9 @@ function eliminarPrecioTotalCarrito() {
     contenedorPrecioTotalCarrito.innerHTML = "";
 }
 
-function borrarBotonVaciarMiCarrito() {
-    const contenedorBtnEliminarCarrito = document.getElementById("contenedorBtnEliminarCarrito");
-    contenedorBtnEliminarCarrito.innerHTML = "";
+function borrarBotonComprarYVaciarMiCarrito() {
+    const contenedorBtnComprarYVaciarCarrito = document.getElementById("contenedorBtnComprarYVaciarCarrito");
+    contenedorBtnComprarYVaciarCarrito.innerHTML = "";
 }
 
 function borrarMensajeMiCarritoVacio() {
@@ -106,6 +137,20 @@ function borrarMensajeMiCarritoVacio() {
 }
 
 //Función para eliminar porductos del carrito
+function limpiarContenedorDeItems() {
+    const contenedorDeItems = document.getElementById("contenedorDeItems");
+
+    carrito.items = [];
+    carrito.total = 0;
+    contenedorDeItems.innerHTML = "";
+
+    eliminarPrecioTotalCarrito();
+    crearMensajeCarritoVacio();
+    borrarBotonComprarYVaciarMiCarrito();
+
+    localStorage.removeItem("miCarrito");
+}
+
 function eliminarCarrito() {
     const swalWithBootstrapButtons = configurarSweetAlert();
 
@@ -117,17 +162,7 @@ function eliminarCarrito() {
         denyButtonText: `No! me arrepentí`,
     }).then((result) => {
         if (result.isConfirmed) {
-            const contenedorDeItems = document.getElementById("contenedorDeItems");
-
-            carrito.items = [];
-            carrito.total = 0;
-            contenedorDeItems.innerHTML = "";
-
-            eliminarPrecioTotalCarrito();
-            crearMensajeCarritoVacio();
-            borrarBotonVaciarMiCarrito();
-
-            localStorage.removeItem("miCarrito");
+            limpiarContenedorDeItems();
 
             swalWithBootstrapButtons.fire({
                 title: "El carrito se vació!",
